@@ -1,7 +1,7 @@
 
-//Declare the variable for PLAY,END 
-//initialize the value for the variable
-//Assign the value of gameState as PLAY
+//Declarar la variable para PLAY,END 
+//inicializar el valor para la variable
+//Asignar el valor de gameState como PLAY
 
 var bow , arrow,  background, redB, pinkB, greenB ,blueB ,arrowGroup;
 var bowImage, arrowImage, green_balloonImage, red_balloonImage, pink_balloonImage ,blue_balloonImage, backgroundImage;
@@ -25,12 +25,12 @@ function preload(){
 function setup() {
   createCanvas(400, 400);
   
-  //creating background
+  //crear el fondo
   scene = createSprite(0,0,400,400);
   scene.addImage(backgroundImage);
   scene.scale = 2.5
   
-  // creating bow to shoot arrow
+  //crear el arco para disparar las flechas
   bow = createSprite(380,220,20,50);
   bow.addImage(bowImage); 
   bow.scale = 1;
@@ -45,24 +45,24 @@ function setup() {
 
 function draw() {
  background(0);
-//Add the condition for gameState=PLAY
-  // moving ground
+//Agregar la condición para gameState=PLAY
+  //mover el fondo
     scene.velocityX = -3 
 
     if (scene.x < 0){
       scene.x = scene.width/2;
     }
   
-  //moving bow
+  //mover el arco
   bow.y = World.mouseY
   
-   // release arrow when space key is pressed
+   //Liberar la flecha al presionar la barra espaciadora
   if (keyDown("space")) {
     createArrow();
     
   }
   
-  //creating continous enemies
+  //crear enemigos continuamente
   var select_balloon = Math.round(random(1,4));
   
   if (World.frameCount % 100 == 0) {
@@ -86,9 +86,9 @@ function draw() {
 
 
 }
- //write a condition for END state
- //Add the code to destroy the bow 
- //set the velocity of the background as 0
+ //escribir una condición para END state (estado END)
+ //Agregar el código para destruir el arco 
+ //establecer la velocidad del fondo como 0
  
 
 
@@ -98,7 +98,7 @@ function draw() {
  
   
   drawSprites();
-//Add the text condition to display the score.
+//Agregar el texto de la condición para que se muestre la puntuación.
 }
 
 
@@ -136,7 +136,7 @@ function pinkBalloon() {
 
 }
 
-// Creating  arrows for bow
+//Crear flechas para el arco
  function createArrow() {
   var arrow= createSprite(100, 100, 60, 10);
   arrow.addImage(arrowImage);
